@@ -11,7 +11,6 @@ const Snavbar = styled.nav`
     border-radius: 0rem 0rem 0.25rem 0.25rem;
     background: #0B99FF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    position: fixed;
 `;
 
 function Navbar(){

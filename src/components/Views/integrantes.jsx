@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import styled from 'styled-components';
 import Navbar from '../components-styled/Navbar/navbar';
-import './ListaIntegrantes.css';
+import './integrantes.css';
 
 function ListaIntegrantes() {
     const integrantes = [
         { nome: 'Gabriel Girami',   RM: '98017'  },
-        { nome: 'Gustavo Vinhola',  RM: '98826'  },
-        { nome: 'Felipe Bernardes', RM: '98866'  },
-        { nome: 'Felipe Pinheiro',  RM: '550244' },
-        { nome: 'Victor Fanfoni',   RM: '99173'  },
+        { nome: '',  RM: ''  },
+        { nome: '', RM: ''  },
+        { nome: ' ',  RM: '' },
+        { nome: ' ',   RM: ''  },
         { nome: 'Rafael Chaves',    RM: '99643'  },
       ];
     

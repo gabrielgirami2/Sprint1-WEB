@@ -1,0 +1,26 @@
+.lista-integrantes {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.lista-integrantes h2 {
+    font-size: 1.5 rem;
+    margin-bottom: 10px;
+}
+
+.lista-integrantes ul {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-integrantes li {
+    margin-bottom: 5px;
+}
+
+.lista-integrantes li strong {
+    color: #007bff;
+}
