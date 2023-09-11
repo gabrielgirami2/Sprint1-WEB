@@ -26,44 +26,44 @@ const FanswerForm = styled.form`
 
 function Form() {
     return(
-        <div className='' style={{ paddingTop: '5vh' }}>
-            <div className='description'>
+        <div className='description' style={{ paddingTop: '5vh' }}>
+            <div className='question'>
                 <FquestionForm >Digite seu CPF</FquestionForm>
             </div>
 
-            <div className='description'>
+            <div className='answer'>
                 <FanswerForm>123.456.789-00</FanswerForm>
             </div>
 
-            <div className='description'>
+            <div className='question'>
                 <FquestionForm >Digite seu e-mail</FquestionForm>
             </div>
 
-            <div className='description'>
+            <div className='answer'>
                 <FanswerForm>usuario@gmail.com</FanswerForm>
             </div>
 
-            <div className='description'>
+            <div className='question'>
                 <FquestionForm >Digite sua localização atual</FquestionForm>
             </div>
 
-            <div className='description'>
+            <div className='answer'>
                 <FanswerForm>Avenida Paulista, 800</FanswerForm>
             </div>
 
-            <div className='description'>
+            <div className='question'>
                 <FquestionForm >Modelo do chassi do veículo</FquestionForm>
             </div>
 
-            <div className='description'>
+            <div className='answer'>
                 <FanswerForm>Tamanho das rodas do veículo</FanswerForm>
             </div>
         
-            <div className='description'>
+            <div className='question'>
                 <FquestionForm >O veículo é modificado?</FquestionForm>
             </div>
 
-            <div className='description'>
+            <div className='answer'>
                 <FanswerForm>Resposta</FanswerForm>
             </div>
         </div>
