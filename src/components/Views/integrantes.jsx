@@ -8,7 +8,7 @@ function ListaIntegrantes() {
     const integrantes = [
         { nome: 'Gabriel Girami',   RM: '98017'  },
         { nome: '',  RM: ''  },
-        { nome: '', RM: ''  },
+        { nome: 'Felipe Santos Pinheiro', RM: '550244'  },
         { nome: ' ',  RM: '' },
         { nome: ' ',   RM: ''  },
         { nome: 'Rafael Chaves',    RM: '99643'  },
