@@ -33,24 +33,7 @@ main {
   width: 100%;
 }
 
-.description {
-  width: 100%;
-}
 
-.forms{
-  width: 100%;
-  height: auto;
-}
-
-.messenger{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  background-color: #00A1FC;
-  border-radius: 0.625rem;
-  margin-bottom: 5px;
-}
 
 .TextStyle{
   width: 100%;
@@ -71,5 +54,14 @@ main {
 }
 
 .lista-integrantes ul {
-  
+  list-style: none;
+  padding: 0;
+}
+
+.lista-integrantes li {
+  margin-bottom: 5px;
+}
+
+.lista-integrantes li strong {
+  color: #007bff;
 }

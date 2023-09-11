@@ -6,12 +6,12 @@ import './ListaIntegrantes.css';
 
 function ListaIntegrantes() {
     const integrantes = [
-        { nome: 'Gabriel Girami', RM: '98017' },
-        { nome: 'Gustavo Vinhola', RM: '98826' },
-        { nome: 'Felipe Bernardes', RM: '98866' },
-        { nome: 'Felipe Pinheiro', RM: '550244' },
-        { nome: 'Victor Fanfoni', RM: '99173' },
-        { nome: 'Rafael Chaves', RM: '99643' },
+        { nome: 'Gabriel Girami',   RM: '98017'  },
+        { nome: 'Gustavo Vinhola',  RM: '98826'  },
+        { nome: 'Felipe Bernardes', RM: '98866'  },
+        { nome: 'Felipe Pinheiro',  RM: '550244' },
+        { nome: 'Victor Fanfoni',   RM: '99173'  },
+        { nome: 'Rafael Chaves',    RM: '99643'  },
       ];
     
       return (
