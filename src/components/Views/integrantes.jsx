@@ -7,7 +7,7 @@ import './integrantes.css';
 function ListaIntegrantes() {
     const integrantes = [
         { nome: 'Gabriel Girami',   RM: '98017'  },
-        { nome: '',  RM: ''  },
+        { nome: 'Gustavo Vinhola dos Santos',  RM: '98826'  },
         { nome: 'Felipe Santos Pinheiro', RM: '550244'  },
         { nome: ' ',  RM: '' },
         { nome: ' ',   RM: ''  },
