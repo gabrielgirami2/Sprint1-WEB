@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Modal from 'react-modal';
 import styled from 'styled-components';
 import background from './assets/background.jpg';
 import './App.css';
@@ -9,6 +8,7 @@ import QuestionForm from './components/components-styled/Forms/questionForm';
 import AnswerForm from './components/components-styled/Forms/AnswerForm';
 import Button from './components/components-styled/Button/button';
 import ListaIntegrantes from './components/Views/integrantes';
+import TextField from './components/components-styled/TextEditor/TextEditor'
 
 function App() {
   const [name, setName] = useState('');
@@ -27,15 +27,8 @@ function App() {
     <div className="App">
       <header>
         <Navbar/>
+
         <Button className='BTNintegrantes' ><i className='bi bi-people-fill'></i>
-        {showPopup && (
-        <div className="popup">
-          {<ListaIntegrantes/>}
-          <h2>Este é o seu pop-up</h2>
-          <p>Aqui você pode adicionar o conteúdo que deseja exibir no pop-up.</p>
-          <button onClick={togglePopup}>Fechar</button>
-        </div>
-      )}
         </Button>
       </header>
 
@@ -84,7 +77,10 @@ function App() {
         {/* <div className='background'>
           <img src={background} alt="Logo" />
         </div> */}
-        <Chatbot/>
+        <div className='messenger'>
+          <TextField label="question" type="text" placeholder="Digite aqui..." value={name} onChange={handleNameChange}/>
+          <Button><i class="bi bi-send"></i></Button>
+        </div>
       </main>
     </div>
   );

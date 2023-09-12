@@ -12,7 +12,7 @@ function ListaIntegrantes() {
         { nome: 'Felipe Bernardes De Almeida ',  RM: '98866' },
         { nome: 'Victor Gabriel Ribas Fanfoni ',   RM: '99173'  },
         { nome: 'Rafael Chaves',    RM: '99643'  },
-      ];
+    ];
     
       return (
         <div className="lista-integrantes">

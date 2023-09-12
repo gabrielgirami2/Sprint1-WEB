@@ -34,7 +34,9 @@ main {
   padding: 0;
   height: 96vh;
   width: 100%;
-  padding-top: 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .description {
@@ -66,4 +68,11 @@ main {
 .BTNintegrantes{
   transform: translateY(-42px);
   font-size: 22px;
+}
+
+@media screen and (max-width: 466px) {
+  .forms{
+    width: 268px;
+    height: 45px;
+  }
 }
