@@ -28,6 +28,7 @@ function ListaIntegrantes() {
                         </li>
                     ))}
                 </ul>
+                <a href="https://github.com/gabrielgirami2/Sprint1-WEB">Link do GITHUB</a>
             </main>
         </div>
       );
