@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import styled from 'styled-components';
-import Navbar from '../components-styled/Navbar/navbar';
 
 function ListaIntegrantes() {
     const integrantes = [
@@ -16,7 +13,6 @@ function ListaIntegrantes() {
       return (
         <div className="lista-integrantes">
             <header>
-                <Navbar/> 
             </header>
             <main>
                 <h2>Integrantes da Equipe</h2>
