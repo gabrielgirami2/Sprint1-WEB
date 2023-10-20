@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import Chat from './components/Chat/chat';
+import Chat from './components/Views/Chat/chat';
 import Menu from './components/Menu/menu';
 import './App.css';
+import Navbar from './components/Navbar/narbar';
 
 function App() {
   return (
     <div className="App">
-      <header>
-      </header>
+      <Navbar/>
 
       <main>
         <Menu/>
