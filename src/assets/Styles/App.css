@@ -1,148 +1,54 @@
-/* #region Keyframe */
-@keyframes color-change-2x{
-  0%{
-    background: #CDF5FD
-  }
-  50%{
-    background: #A0E9FF
-    
-  }
-  100%{
-    background: #89CFF3;
-  }
-}
-/* #endregion */
-
-/* #region Variables */
-:root {
-  --color-porto: #00A1FC;
-  --color-white: #fff;
-  --cor-azul-block: #00A9FF;
-}
-/* #endregion */
-
-/* #region CSS */
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-html, body{
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body{
-  animation: color-change-2x 2s cubic-bezier(0.470, 0.000, 0.745, 0.715) infinite alternate-reverse forwards;;
-}
-
-.app{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh
-}
-
-#root {
-  display: contents;
-}
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* #region Selector.jsx */
-.block{
-  width: 80%;
-  height: 36%;
-  border-radius: 75px;
-  background-color: var(--cor-azul-block);
-  display: inline-flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: 24px 30px 77px rgba(0, 0, 0, 0.3);
-}
-
-/* #region Button css */
-.Sbutton {
-  font-size: 20px;
-  background: #A3DEFF;
-  color: white;
-  fill: rgb(155, 153, 153);
-  display: flex;
-  align-items: center;
-  border: none;
-  border-radius: 8px;
-  font-weight: 1000;
-  transform: scale(2);
-  height: 52px;
-}
-
-.Sbutton span {
+.switch {
   display: block;
-  margin-left: 0.3em;
-  transition: all 0.3s ease-in-out;
-  color: #fff;
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2em;
+  --size-of-icon: 1.4em;
+  --slider-offset: 0.3em;
+  position: relative;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+  float: inline-end;
+  margin: 18px 24px 0 0;
 }
 
-.Sbutton svg {
-  display: block;
-  fill: #000;
-  transform-origin: center center;
-  transition: transform 0.3s ease-in-out;
-}
-
-.Sbutton:hover {
-  background: #fff;
-}
-
-.Sbutton:hover .svg-wrapper {
-  transform: scale(1.25);
-  transition: .5s linear;
-}
-
-.Sbutton:hover svg {
-  transform: translateX(1.9em) scale(1.1);
-  fill: #A3DEFF;
-}
-
-.Sbutton:hover span {
+.switch input {
   opacity: 0;
-  transition: .5s linear;
+  width: 0;
+  height: 0;
 }
 
-.Sbutton:active {
-  transform: scale(0.95);
-}
-/* #endregion */
-
-/* #endregion */
-
-/* #region Header.jsx */
-
-.icon{
-  background-color: var(--color-white);
-  border-radius: 16px;
-  height: 178px;
-  width: 178px;
-  transform: translateY(83px);
-  box-shadow: 5px 5px 26px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f5;
+  transition: .4s;
+  border-radius: 30px;
 }
 
-.logo{
-  fill: var(--color-porto);
+.slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon,1.4em);
+  width: var(--size-of-icon,1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset,0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg,#ff0080,#ff8c00 70%);
+  ;
+ transition: .4s;
 }
 
-/* #endregion */
-
-footer{
-  position: fixed;
-  bottom: 5px;
+input:checked + .slider {
+  background-color: #303136;
 }
 
-/* #endregion */
+input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon,1.4em) + var(--slider-offset,0.3em)));
+  background: #303136;
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}

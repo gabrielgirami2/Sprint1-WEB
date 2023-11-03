@@ -1,2 +1,2 @@
-@REM start opera "https://www.figma.com/file/p34zIe8zl6lQ5Q0MpcE9mH/Gfv-Corp?type=design&node-id=0-1&mode=design&t=RmFcQ692KZMTy5Kq-0"
-start "https://www.figma.com/file/p34zIe8zl6lQ5Q0MpcE9mH/Gfv-Corp?type=design&node-id=0-1&mode=design&t=RmFcQ692KZMTy5Kq-0"
+start opera "https://www.figma.com/file/p34zIe8zl6lQ5Q0MpcE9mH/Gfv-Corp?type=design&node-id=0-1&mode=design&t=RmFcQ692KZMTy5Kq-0"
+@REM start "https://www.figma.com/file/p34zIe8zl6lQ5Q0MpcE9mH/Gfv-Corp?type=design&node-id=0-1&mode=design&t=RmFcQ692KZMTy5Kq-0"
