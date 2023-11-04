@@ -17,6 +17,8 @@ export const lightTheme = {
   colorBackMain: "#00A9FF",
   colorTexto: "#262626",
   colorbackIcon: "#fff",
+  colorBackButton: "#A3DEFF",
+  colorText: "#000",
 
   corTextNav: "#19deec",
   corTitulo: "#ff0000",
@@ -29,6 +31,8 @@ export const darkTheme = {
   colorBackMain: "#0080ff",
   colorTexto: "#dcdcdc",
   colorbackIcon: "#262626",
+  colorBackButton: "#0233c8f0",
+  colorText: "#898383",
 
 
   corTextNav: "#19deec",
@@ -57,6 +61,8 @@ export const DivIconHome = styled.div`
 `;
 
 export const Selector = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 77%;
   height: 36%;
   border-radius: 50px;
@@ -65,23 +71,26 @@ export const Selector = styled.div`
   background-color: ${(props) => props.theme.colorBackMain};
 `;
 
-
 export const ButtonHome = styled.button`
-  width: 150px;
-  height: 50px;
+  width: 65%;
+  height: 14%;
   border-radius: 5px;
   border: none;
   transition: all 0.5s ease-in-out;
   font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  background: #040f16;
-  color: #f5f5f5;
+  display: inline-flex;
+  justify-content: space-around;
+  background: ${(props) => props.theme.colorBackButton};
+  color:  ${(props) => props.theme.colorText};
 
   &:hover {
     box-shadow: 0 0 20px 0px #2e2e2e3a;
+  }
+
+  &:focus {
+    outline: none;
   }
 `;
 

@@ -9,6 +9,14 @@ const IconPorto = styled.img`
   transform: scale(0.7);
 `;
 
+const ButtonDiv = styled.div`
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(32%);z
+`;
+
 function Home() {
   return (
     <Selector>
@@ -16,14 +24,27 @@ function Home() {
         <IconPorto src={LogoPorto} alt="Logo" />
       </DivIconHome>
 
-      <Link to="/request">
-        <button className="btn">
-          <span className="icon">
-            <img src={IconTow} alt="icon" />
-          </span>
-          <span className="text">MENU</span>
-        </button>
-      </Link>
+      <ButtonDiv>
+        <Link to="/request">
+        </Link>
+          <ButtonHome className="btn">
+            <span className="icon">
+              <img src={IconTow} alt="icon" />
+            </span>
+            <span className="text">Solicitar</span>
+          </ButtonHome>
+
+        <br/>
+
+        <Link to="/accompany">
+          <ButtonHome className="btn">
+            <span className="icon">
+              <img src={IconTow} alt="icon" />
+            </span>
+            <span className="text">Acompanhar</span>
+          </ButtonHome>
+        </Link>
+      </ButtonDiv>
     </Selector>
   );
 }
