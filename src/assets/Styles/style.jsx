@@ -18,7 +18,7 @@ export const lightTheme = {
   colorTexto: "#262626",
   colorbackIcon: "#fff",
   colorBackButton: "#A3DEFF",
-  colorText: "#000",
+  colorText: "#00A9FF",
 
   corTextNav: "#19deec",
   corTitulo: "#ff0000",
@@ -31,8 +31,8 @@ export const darkTheme = {
   colorBackMain: "#0080ff",
   colorTexto: "#dcdcdc",
   colorbackIcon: "#262626",
-  colorBackButton: "#0233c8f0",
-  colorText: "#898383",
+  colorBackButton: "#234eceee",
+  colorText: "#b3b3b3",
 
 
   corTextNav: "#19deec",
@@ -49,6 +49,15 @@ export const Container = styled.div`
   height: 100vh;
 `;
 
+export const Link = styled.a`
+  display: flex;
+  width: 58%;
+  height: 15%;
+  align-items: center;
+  justify-content: center;
+  text-decoration-line: none;
+`;
+
 export const DivIconHome = styled.div`
   background-color: ${(props) => props.theme.colorbackIcon};
   width: 14%;
@@ -58,6 +67,7 @@ export const DivIconHome = styled.div`
   justify-content: center;
   border-radius: 13px;
   transform: translate(304%, -46%);
+  box-shadow: 11px 16px 29px 3px rgba(0, 0, 0, 0.20);
 `;
 
 export const Selector = styled.div`
@@ -72,16 +82,15 @@ export const Selector = styled.div`
 `;
 
 export const ButtonHome = styled.button`
-  width: 65%;
-  height: 14%;
+  width: 100%;
+  height: 100%;
   border-radius: 5px;
   border: none;
   transition: all 0.5s ease-in-out;
-  font-size: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 600;
-  display: inline-flex;
-  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 11px 16px 27px 3px rgba(0, 0, 0, 0.20);
   background: ${(props) => props.theme.colorBackButton};
   color:  ${(props) => props.theme.colorText};
 
@@ -92,8 +101,4 @@ export const ButtonHome = styled.button`
   &:focus {
     outline: none;
   }
-`;
-
-export const Footer = styled.footer`
-  content: '© 2023 - PortoSeguro/GFV Corp.';
 `;

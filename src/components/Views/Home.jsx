@@ -1,20 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Selector, DivIconHome, ButtonHome } from '../../assets/Styles/style';
+import { Link, Selector, DivIconHome, ButtonHome } from '../../assets/Styles/style';
 import LogoPorto from '../../assets/img/logo-portoseguro-blue.svg';
 import styled from 'styled-components';
 import IconTow from '../../assets/img/Tow.svg';
+import IconList from '../../assets/img/List.svg';
 
 const IconPorto = styled.img`
   transform: scale(0.7);
 `;
 
 const ButtonDiv = styled.div`
-  height: 100%;
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  transform: translateY(32%);z
+  flex-direction: column;
+  justify-content: space-evenly;
+  transform: translateY(-8px);
+  height: 100%;
+`;
+
+const ImgDiv = styled.div`
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  width: 20%;
+  justify-content: center;
 `;
 
 function Home() {
@@ -25,23 +34,20 @@ function Home() {
       </DivIconHome>
 
       <ButtonDiv>
-        <Link to="/request">
-        </Link>
+        <Link href="/request" className='linkButton'>
           <ButtonHome className="btn">
-            <span className="icon">
-              <img src={IconTow} alt="icon" />
-            </span>
             <span className="text">Solicitar</span>
+            <ImgDiv>
+              <img src={IconTow} className="icon IconRequest" alt="icon" />
+            </ImgDiv>
           </ButtonHome>
-
-        <br/>
-
-        <Link to="/accompany">
+        </Link>
+        <Link href="/accompany" className='linkButton AcompanyStyle'>
           <ButtonHome className="btn">
-            <span className="icon">
-              <img src={IconTow} alt="icon" />
-            </span>
             <span className="text">Acompanhar</span>
+            <ImgDiv>
+              <img src={IconList} className="icon IconAcompanyStyle" alt="icon" />
+            </ImgDiv>
           </ButtonHome>
         </Link>
       </ButtonDiv>

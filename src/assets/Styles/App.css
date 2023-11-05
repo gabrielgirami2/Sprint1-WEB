@@ -1,3 +1,4 @@
+/* #region SwitchModeTheme */
 .switch {
   display: block;
   --width-of-switch: 3.5em;
@@ -52,25 +53,33 @@ input:checked + .slider:before {
   background: #303136;
   box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
 }
+/* #endregion */
 
 
+/* #region ButtonHome */
+.AcompanyStyle{
+  transform: translateY(-90px);
+}
+
+.IconAcompanyStyle{
+  transform: scale(1.8);
+}
+
+.IconRequest{
+  transform: scale(1.4);
+}
 
 .btn .icon {
   position: absolute;
   height: 40px;
   width: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: all 0.5s;
 }
 
 .btn .text {
-  transform: translateX(55px);
-}
-
-.btn:hover .icon {
-  width: 175px;
+  font-size: 2.6rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
 }
 
 .btn:hover .text {
@@ -78,17 +87,37 @@ input:checked + .slider:before {
   opacity: 0;
 }
 
+.btn:hover .icon, .btn:hover .IconAcompanyStyle, 
+.btn:active, .btn:active .icon, .btn:active .IconAcompanyStyle {
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .icon {
+  transform: scale(1.8) translateX(-105%);
+}
+
+.btn:hover .IconAcompanyStyle {
+  transform: scale(2.2) translateX(-125%);
+}
+
+.btn:active {
+  transform: scale(1.1) ;
+}
 
 .btn:active .icon {
-  transform: scale(0.85);
+  transform: scale(1.8) translateX(-100%);
+}
+
+.btn:active .IconAcompanyStyle {
+  transform: scale(2.2) translateX(-100%);
 }
 
 
+/* #endregion */
 
 
-
-
-body {
+/* #region css*/
+body {  
   cursor: url('https://ionicframework.com/img/finger.png'), auto;
 }
 
@@ -285,4 +314,4 @@ a.autolinker {
 .loader .ion-loading-c {
   font-size: 64px;
 }
-;
+/* #endregion */

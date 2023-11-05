@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Container, lightTheme, darkTheme, Footer } from './assets/Styles/style';
+import { Container, lightTheme, darkTheme} from './assets/Styles/style';
 import Home from './components/Views/Home';
 import Request from './components/Views/Request';
 import Accompany from './components/Views/Accompany';
 import './assets/Styles/App.css';   
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -27,7 +28,7 @@ function App() {
           <Route path='/accompany' element={<Accompany />} />
         </Routes>
       </BrowserRouter>
-      {/* <Footer/> */}
+      <Footer/>
     </Container>
   </ThemeProvider>
   );
