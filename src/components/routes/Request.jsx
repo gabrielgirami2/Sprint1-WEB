@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect} from 'react';
+import React, { useState, useRef} from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
 import { IoSend } from "react-icons/io5";
@@ -35,55 +35,20 @@ function getGreeting() {
 }
 
 function Request() {
-  // #region chat
-  const [textareaHeight, setTextareaHeight] = useState('auto');
-  const [userInput, setUserInput] = useState('');
+  // #region chat/API
   const greeting = getGreeting();
+  const textareaRef = useRef(null);  
+  const [error, setError] = useState(null);
+  const [userId, setUserId] = useState(null);
+  const [vehicles, setVehicles] = useState([]);
+  const [userInput, setUserInput] = useState('');
+  const [textareaHeight, setTextareaHeight] = useState('auto');
+  const [selectedVehicle, setSelectedVehicle] = useState(null);
   const [messages, setMessages] = useState([ 
     { text: `${greeting}, Como vai?\n Estamos aqui para te ajudar.`, sender: 'chat' },
     { text: 'Para prosseguirmos com a solicitação, peço gentilmente o seu CPF.', sender: 'chat' },
   ]);
-  const getPost = async() => {
-    try {
-      const response = await axios.post('http://localhost:3000/request', {
-        cpf: userInput,
-      });
-      setMessages([...messages, { text: response.data.message, sender: 'user' }]);
-      setUserInput('');
-    } catch (error) {
-      console.log(error);
-    }
-  }
   
-  useEffect(() => {
-
-  })
-
-
-
-
-  const textareaRef = useRef(null);
-
-  const handleUserInput = (e) => {
-    setUserInput(e.target.value);
-
-    if (textareaRef.current) {
-      textareaRef.current.style.height = 'auto';
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-      setTextareaHeight(`${textareaRef.current.scrollHeight}px`);
-    } 
-  };
-
-  const handleSendMessage = () => {
-    if (userInput.trim() !== '') {
-      const cleanedMessage = cleanCPF(userInput);
-      setMessages([...messages, { text: cleanedMessage, sender: 'user' }]);
-      checkAPI(cleanedMessage);
-      setUserInput('');
-      setTextareaHeight('auto');  
-    } 
-  };
-
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -92,29 +57,66 @@ function Request() {
   };
 
   const cleanCPF = (message) => {
-    const cpfRegex = /(\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11,14})/g;
+    const cpfRegex = /(\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11})/g;
     const cpfMatch = message.match(cpfRegex);
     if (cpfMatch) {
-      return cpfMatch[0].replace(/[\.-]/g, '');
+      const cleanedCPF = cpfMatch[0].replace(/\D/g, '');
+      if (cleanedCPF.length === 11) {
+        return cleanedCPF;
+      }
     }
     return message;
   };
-  // #endregion
 
-  // #region API
-  const checkAPI = (cpf) => {
-    axios.get(`https://api-gfvcorp.onrender.com/client?cpf=${cpf}`)
-      .then((response) => {
-        if (response.data) {
-          setMessages([...messages, { text: response.data, sender: 'api' }]);
-        } else {
-          setMessages([...messages, { text: 'Não há registro.\n Crie seu cadastro agora.', sender: 'api' }]);
-        }
-      })
-      .catch((error) => {
-        console.error('Erro na solicitação à API:', error);
-      });
+  const handleUserInput = (e) => {
+    setUserInput(e.target.value);
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+      setTextareaHeight(`${textareaRef.current.scrollHeight}px`);
+    } 
   };
+
+  const handleSendMessage = async () => {
+    if (userInput.trim() !== '') {
+      const cleanedMessage = cleanCPF(userInput);
+      const newMessage = { text: userInput, sender: 'user' }; 
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
+      setUserInput('');
+      setTextareaHeight('auto');
+
+      try {
+        const response = await axios.get(`https://api-gfvcorp.onrender.com/client?cpf=${cleanedMessage}`);
+        if (response.data.length === 0) {
+          setMessages((prevMessages) => [...prevMessages, 
+            { text: 'Não há existe nenhuma conta associada a esse serviço.\nVamos começar seu cadastro.', sender: 'chat' }
+          ]);
+        }else {
+          const userId = response.data[0].id;
+          const userName = response.data[0].nome;  
+          setUserId(userId);
+          
+          const vehiclesResponse = await axios.get(`https://api-gfvcorp.onrender.com/vehicle?client=${userId}`);
+          const vehicleId = vehiclesResponse.data[0].id;
+          const vehiclePlaca = vehiclesResponse.data[0].placa;
+          const vehiclesData = vehiclesResponse.data;
+          setVehicles(vehicleId);
+
+          if (vehiclesData.length === 0) {
+            setMessages((prevMessages) => [...prevMessages, { text: `Seja bem-vindo ${userName}! \nVocê não possui veículos associados. Vamos começa a cadastrar seu veículo.`, sender: 'api' }]);
+          } else {
+            setVehicles(vehiclesData);
+            setMessages((prevMessages) => [...prevMessages, {text: `Seja bem-vindo ${userName}! \nSelecione um veículo:`, sender: 'api' }]);
+          }
+          
+          console.log(response.data, userId, userName, vehiclesResponse, vehicleId, vehiclePlaca);
+        }
+      } catch (error) {
+        console.error('Erro ao acessar a API:', error);
+      }
+    }
+  };
+
   // #endregion
 
   return (
@@ -124,25 +126,25 @@ function Request() {
           if (message.sender === 'user') {
             return (
               <UserMessage key={index}>
-                {message.text.split('\n').map((line, i) => (
+                {typeof message.text === 'string' ? message.text.split('\n').map((line, i) => (
                   <div key={i}>{line}</div>
-                ))}
+                )) : message.text }
               </UserMessage>
             );
           } else if (message.sender === 'api') {
             return (
-              <ChatMessage key={index}>
-                {message.text.split('\n').map((line, i) => (
+              <ChatMessage  key={index}>
+                {typeof message.text === 'string' ? message.text.split('\n').map((line, i) => (
                   <div key={i}>{line}</div>
-                ))}
+                )) : message.text }
               </ChatMessage>
             );
           } else {
             return (
               <ChatMessage key={index}>
-                {message.text.split('\n').map((line, i) => (
+                {typeof message.text === 'string' ? message.text.split('\n').map((line, i) => (
                   <div key={i}>{line}</div>
-                ))}
+                )) : message.text }
               </ChatMessage>
             );
           }
@@ -155,6 +157,6 @@ function Request() {
         </ChatSend>
     </Chat>
   );
-}
+};
 
 export default Request;
