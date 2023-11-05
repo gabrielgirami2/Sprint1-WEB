@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, Selector, DivIconHome, ButtonHome } from '../../assets/Styles/style';
+import { Link } from 'react-router-dom';
+import { Selector, DivIconHome, ButtonHome } from '../../assets/Styles/style';
 import LogoPorto from '../../assets/img/logo-portoseguro-blue.svg';
 import styled from 'styled-components';
 import IconTow from '../../assets/img/Tow.svg';
@@ -34,7 +35,7 @@ function Home() {
       </DivIconHome>
 
       <ButtonDiv>
-        <Link href="/request" className='linkButton'>
+        <Link to="/request" className='linkButtonStyle'>
           <ButtonHome className="btn">
             <span className="text">Solicitar</span>
             <ImgDiv>
@@ -42,7 +43,7 @@ function Home() {
             </ImgDiv>
           </ButtonHome>
         </Link>
-        <Link href="/accompany" className='linkButton AcompanyStyle'>
+        <Link to="/accompany" className='linkButtonStyle AcompanyStyle'>
           <ButtonHome className="btn">
             <span className="text">Acompanhar</span>
             <ImgDiv>

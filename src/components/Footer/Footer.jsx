@@ -12,7 +12,7 @@ const FooterStyle = styled.p`
 
 function Footer() {
   return (
-    <FooterStyle>
+    <FooterStyle className='ocult'>
         © 2023 - PortoSeguro / GFV Corp.
     </FooterStyle>
   );

@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Container, lightTheme, darkTheme} from './assets/Styles/style';
-import Home from './components/Views/Home';
-import Request from './components/Views/Request';
-import Accompany from './components/Views/Accompany';
 import './assets/Styles/App.css';   
 import Footer from './components/Footer/Footer';
 
@@ -21,14 +18,8 @@ function App() {
         <input theme={theme} onClick={toggleTheme} type="checkbox" ></input>
         <span className="slider"></span>
       </label>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/request' element={<Request />} />
-          <Route path='/accompany' element={<Accompany />} />
-        </Routes>
-      </BrowserRouter>
-      <Footer/>
+      <Outlet />
+      {/* <Footer/> */}
     </Container>
   </ThemeProvider>
   );

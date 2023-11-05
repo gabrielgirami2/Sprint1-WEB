@@ -1,3 +1,17 @@
+body{
+  margin: 0;
+  height: 100vh;
+}
+
+.linkButtonStyle{
+  display: flex;
+  width: 58%;
+  height: 15%;
+  align-items: center;
+  justify-content: center;
+  text-decoration-line: none;
+}
+
 /* #region SwitchModeTheme */
 .switch {
   display: block;
@@ -5,11 +19,11 @@
   --height-of-switch: 2em;
   --size-of-icon: 1.4em;
   --slider-offset: 0.3em;
-  position: relative;
+  position: fixed;
   width: var(--width-of-switch);
   height: var(--height-of-switch);
-  float: inline-end;
-  margin: 18px 24px 0 0;
+  left: 0;
+  transform: translate(13px, 14px);
 }
 
 .switch input {
@@ -40,8 +54,7 @@
   top: 50%;
   transform: translateY(-50%);
   background: linear-gradient(40deg,#ff0080,#ff8c00 70%);
-  ;
- transition: .4s;
+  transition: .4s;
 }
 
 input:checked + .slider {
@@ -116,5 +129,6 @@ input:checked + .slider:before {
 
 
 /* #region chat*/
+
 
 /* #endregion */
